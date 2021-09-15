@@ -11,7 +11,7 @@ LazyData: true
 Imports: 
     DBI,
     glue,
-    dplyer
+    dplyr
 Depends: 
     R (>= 2.10)
 Suggests: 
