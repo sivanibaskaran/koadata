@@ -10,9 +10,9 @@
 #' @export
 #'
 #' @examples
-#' open.database()
-#' open.database("upd")
-open.database <- function(ver = "upd") {
+#' koa.database()
+#' koa.database("upd")
+koa.database <- function(ver = "upd") {
   conn <- DBI::dbConnect(RSQLite::SQLite(), system.file("DB", paste("koa-", ver, ".db",sep = ""), package = "koadata"))
   result <- conn
 return(result)
