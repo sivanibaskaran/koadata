@@ -169,3 +169,44 @@ au.table <- function(ver = "upd") {
   return(result)
 }
 
+
+
+
+
+#' Import the Property Table
+#'
+#' Imports the Property table from the database.
+#'
+#' @param query Property type, either a single input or a list. Default is NA. Must be either: "log_KOW", "log_KAW", "Sw", "VP", "inf_act", "dG".
+#' @param ver Version of the database. Default is upd, for the latest version.
+#'
+#' @return A data frame containing information on the different methods used to obtain the KOA values in the database.
+#' @export
+#'
+#' @examples
+#' prop.table()
+#' prop.table("Dynamic")
+prop.table <- function(query = NA, ver = "upd") {
+  conn <- DBI::dbConnect(RSQLite::SQLite(), system.file("DB", paste("koa-", ver, ".db",sep = ""), package = "koadata"))
+  if (is.na(query)) {
+    prop_sql <-
+      glue::glue_sql(
+        "SELECT *
+         FROM prop")
+    prop_sql <- DBI::dbSendQuery(conn, prop_sql)
+  } else {
+    prop_sql <-
+      glue::glue_sql(
+        "SELECT *
+         FROM prop
+        WHERE prop.Property = ?")
+    prop_sql <- DBI::dbSendQuery(conn, prop_sql)
+    prop_sql <- DBI::dbBind(prop_sql, list(query))
+  }
+  result <- DBI::dbFetch(prop_sql)
+  DBI::dbClearResult(prop_sql)
+  DBI::dbDisconnect(conn)
+  return(result)
+
+}
+

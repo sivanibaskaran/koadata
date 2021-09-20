@@ -4,7 +4,7 @@ Title: A Database of Octanol-Air Partition Ratios
 Version: 0.1.0
 Author: Sivani Baskaran
 Maintainer: Sivani Baskaran <sivani.baskaran@mail.utoronto.ca>
-Description: This database contains experimental and estimated KOA values data published in the literature. The package is intended to allow users to easily search and access the database.
+Description: This database contains experimental and estimated KOA values data published in the literature as described in *Baskaran et al. 2021. J Phys Chem Ref Data*. The package is intended to allow users to easily search and access the database.
 License: use_ccby_license()
 Encoding: UTF-8
 LazyData: true
@@ -15,6 +15,8 @@ Imports:
 Depends: 
     R (>= 2.10)
 Suggests: 
-    RSQLite, knitr, rmarkdown
+    RSQLite, 
+    knitr, 
+    rmarkdown
 RoxygenNote: 7.1.1.9000
 VignetteBuilder: knitr
