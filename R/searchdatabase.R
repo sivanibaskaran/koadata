@@ -45,7 +45,7 @@ query.cas <- function(query,
   if (more.info == F) {
     CAS_sql <-
       glue::glue_sql(
-        "SELECT chem.Cas_No, chem.Chemical_Name, koa.Temp, koa.log_KOA, meth.Score, meth.Type,  meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
+        "SELECT chem.Cas_No, chem.Chemical_Name, koa.Temp, koa.log_KOA, meth.Ranking, meth.Type,  meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
   FROM koa
   JOIN chem ON koa.chemID = chem.id
   JOIN meth ON koa.methID = meth.id
@@ -60,7 +60,7 @@ query.cas <- function(query,
         "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
-                meth.Score, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
+                meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
                 meth.wet_dry_Octanol, meth.Value_Reported_As,
                 ref.Citation, ref.Team,
                 koa.Reliability, koa.Comment
@@ -108,7 +108,7 @@ query.name <- function(query,
     name_sql <-
       glue::glue_sql(
         "SELECT chem.Cas_No, chem.Chemical_Name, koa.Temp, koa.log_KOA,
-                                     meth.Score, meth.Type, meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
+                                     meth.Ranking, meth.Type, meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
          FROM koa
          JOIN chem ON koa.chemID = chem.id
          JOIN meth ON koa.methID = meth.id
@@ -123,7 +123,7 @@ query.name <- function(query,
         "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
-                meth.Score, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
+                meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
                 meth.wet_dry_Octanol, meth.Value_Reported_As,
                 ref.Citation, ref.Team,
                 koa.Reliability, koa.Comment
@@ -171,7 +171,7 @@ query.category <- function(query,
   if (more.info == F) {
     cat_sql <-
       glue::glue_sql(
-        "SELECT chem.Cas_No, chem.Chemical_Name, koa.Temp, koa.log_KOA, meth.Score,
+        "SELECT chem.Cas_No, chem.Chemical_Name, koa.Temp, koa.log_KOA, meth.Ranking,
                 meth.Type, meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
          FROM koa
          JOIN chem ON koa.chemID = chem.id
@@ -187,7 +187,7 @@ query.category <- function(query,
         "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
-                meth.Score, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
+                meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
                 meth.wet_dry_Octanol, meth.Value_Reported_As,
                 ref.Citation, ref.Team,
                 koa.Reliability, koa.Comment
@@ -235,7 +235,7 @@ query.mass <- function(lower_limit, upper_limit, ver = "upd") {
     mass_sql <-
       glue::glue_sql(
         "SELECT chem.Cas_No, chem.Chemical_Name, koa.Temp, koa.log_KOA,
-                meth.Score, meth.Type, meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
+                meth.Ranking, meth.Type, meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
          FROM koa
          JOIN chem ON koa.chemID = chem.id
          JOIN meth ON koa.methID = meth.id
@@ -249,7 +249,7 @@ query.mass <- function(lower_limit, upper_limit, ver = "upd") {
         "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
-                meth.Score, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
+                meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
                 meth.wet_dry_Octanol, meth.Value_Reported_As,
                 ref.Citation, ref.Team,
                 koa.Reliability, koa.Comment
@@ -296,7 +296,7 @@ query.citation <- function(query,
     citation_sql <-
       glue::glue_sql(
         "SELECT chem.Cas_No, chem.Chemical_Name, koa.Temp, koa.log_KOA,
-                meth.Score, meth.Type, meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
+                meth.Ranking, meth.Type, meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
          FROM koa
          JOIN chem ON koa.chemID = chem.id
          JOIN meth ON koa.methID = meth.id
@@ -311,7 +311,7 @@ query.citation <- function(query,
         "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
-                meth.Score, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
+                meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
                 meth.wet_dry_Octanol, meth.Value_Reported_As,
                 ref.Citation, ref.Team,
                 koa.Reliability, koa.Comment
@@ -357,7 +357,7 @@ query.group <- function(query,
     group_sql <-
       glue::glue_sql(
         "SELECT chem.Cas_No, chem.Chemical_Name, koa.Temp, koa.log_KOA,
-                meth.Score, meth.Type, meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
+                meth.Ranking, meth.Type, meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
          FROM koa
          JOIN chem ON koa.chemID = chem.id
          JOIN meth ON koa.methID = meth.id
@@ -372,7 +372,7 @@ query.group <- function(query,
         "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
-                meth.Score, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
+                meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
                 meth.wet_dry_Octanol, meth.Value_Reported_As,
                 ref.Citation, ref.Team,
                 koa.Reliability, koa.Comment
