@@ -1,6 +1,5 @@
 
 
-
 #' Import Chemical Table
 #'
 #' Imports the chemical table from the database. The table can be subset to include general categories of chemicals.
@@ -12,9 +11,9 @@
 #' @export
 #'
 #' @examples
-#' chem.table()
-#' chem.table("PCB")
-chem.table <- function(query = NA, ver = "upd") {
+#' table.chem()
+#' table.chem("PCB")
+table.chem <- function(query = NA, ver = "upd") {
   conn <- DBI::dbConnect(RSQLite::SQLite(), system.file("DB", paste("koa-", ver, ".db", sep = ""), package = "koadata"))
   if (is.na(query)) {
     chemical_sql <-
@@ -48,11 +47,11 @@ chem.table <- function(query = NA, ver = "upd") {
 #' @export
 #'
 #' @examples
-#' ref.table()
-#' ref.table("Harner")
-#' ref.table("Carr", "upd")
+#' table.ref()
+#' table.ref("Harner")
+#' table.ref("Carr", "upd")
 #'
-ref.table <- function(query = NA, ver = "upd") {
+table.ref <- function(query = NA, ver = "upd") {
   conn <- DBI::dbConnect(RSQLite::SQLite(), system.file("DB", paste("koa-", ver, ".db", sep = ""), package = "koadata"))
      if (is.na(query)) {
       ref_sql <-
@@ -87,9 +86,9 @@ ref.table <- function(query = NA, ver = "upd") {
 #' @export
 #'
 #' @examples
-#' meth.table()
-#' meth.table("Dynamic")
-meth.table <- function(query = NA, ver = "upd") {
+#' table.meth()
+#' table.meth("Dynamic")
+table.meth <- function(query = NA, ver = "upd") {
   conn <- DBI::dbConnect(RSQLite::SQLite(), system.file("DB", paste("koa-", ver, ".db",sep = ""), package = "koadata"))
   if (is.na(query)) {
     meth_sql <-
@@ -125,9 +124,9 @@ meth.table <- function(query = NA, ver = "upd") {
 #' @export
 #'
 #' @examples
-#' koa.table()
-#' koa.table(upd)
-koa.table <- function(ver = "upd") {
+#' table.koa()
+#' table.koa(upd)
+table.koa <- function(ver = "upd") {
   conn <- DBI::dbConnect(RSQLite::SQLite(), system.file("DB", paste("koa-", ver, ".db",sep = ""), package = "koadata"))
   koa_sql <-
     glue::glue_sql(
@@ -154,9 +153,9 @@ koa.table <- function(ver = "upd") {
 #' @export
 #'
 #' @examples
-#' au.table()
+#' table.au()
 
-au.table <- function(ver = "upd") {
+table.au <- function(ver = "upd") {
   conn <- DBI::dbConnect(RSQLite::SQLite(), system.file("DB", paste("koa-", ver, ".db",sep = ""), package = "koadata"))
   au_sql <-
     glue::glue_sql(
@@ -184,9 +183,10 @@ au.table <- function(ver = "upd") {
 #' @export
 #'
 #' @examples
-#' prop.table()
-#' prop.table("Dynamic")
-prop.table <- function(query = NA, ver = "upd") {
+#' table.prop()
+#' table.prop("log_KOW")
+#' table.prop(c("log_KOW", "log_KAW"))
+table.prop <- function(query = NA, ver = "upd") {
   conn <- DBI::dbConnect(RSQLite::SQLite(), system.file("DB", paste("koa-", ver, ".db",sep = ""), package = "koadata"))
   if (is.na(query)) {
     prop_sql <-
