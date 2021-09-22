@@ -23,7 +23,6 @@ This package was created to make the *K*~OA~ database by *[Baskaran et al. 2021]
 
 ```{r setup}
 library(koadata) #load the koadata package
-
 ```
 
 
@@ -58,17 +57,17 @@ The *K*~OA~ database contains multiple tables including chemical, methodological
 knitr::include_graphics("Figure3.png")
 ```
 
-Each of these tables contain specific data and can be extracted using *table* functions. For example, if you want to take a look at the Reference Table you would use the function ref.table(). In the example below we've created a data frame called *references* which contains the reference table from the database. 
+Each of these tables contain specific data and can be extracted using *table* functions. For example, if you want to take a look at the Reference Table you would use the function ref.table(). 
 
 ```{r}
-references <- table.ref() #creates variable references
+#table.ref()
 ```
 
 This data frame contains 155 observations (rows) and 7 variables (columns). Here is a small subset of what the *references* variable output looks like.
 
 ```{r, echo = F}
+references <- table.ref() 
 paged_table(references, options = list(rows.print = 5, cols.print = 15)) 
-
 ```
 
 Similarly you can extract the different tables in the database using the other *table* functions.
@@ -88,9 +87,9 @@ Some of these *table* functions allow you to extract a subset of data. For examp
 
 ``` {r}
 
-table.ref("Harner")
+# table.ref("Harner")
 
-#table.ref(query = "Harner") will also produce the same result.
+#table.ref(query = "Harner") 
 
 ```
 
@@ -121,16 +120,18 @@ All query functions by default will provide the following information:
 * Temperature (°C) of the *K*~OA~ value
 * log~10~ *K*~OA~ value
 * Method's score (0 to 4)
-* Exerimental or estimated value (EXP or EST)
+* Experimental or estimated value (EXP or EST)
 * Method bin (QSPR, Solvation, RT, etc.)
 * Citation
 * Note on reliability
 * Comments during data curation
 
-If the more.info parameter is specified as TRUE, then additional columns information is also extracted from the database:
+## more.info Argument
+
+If the more.info argument is specified as TRUE, then additional columns information is also extracted from the database:
 
 * Chemical category
-* All chemical names/sysnonyms and acronyms included in the database
+* All chemical names/synonyms and acronyms included in the database
 * Molar mass of the chemical
 * Type of method ("Dynamic", "Static", "Indirect", "EST")
 * Specificity regarding the method (UPPER, COSMOtherm, SR-GC-RT, etc.)
@@ -138,33 +139,101 @@ If the more.info parameter is specified as TRUE, then additional columns informa
 * Way the *K*~OA~ was original reported in the reference
 * Reference Group
 
+By default the more.info argument is FALSE.
+
 ## Query by CAS No.
 
 This function can be used to extract *K*~OA~ information regarding a specific chemical with a known CAS No. The CAS No. does not need to include hyphens (-).
 
 ```{r}
-
-query.cas("87-82-1")
-
-query.cas("87821", more.info = T)
-
+# query.cas("87-82-1")
+ 
+# query.cas("87821", more.info = T)
 ```
 
 ## Query by Name
 
+Using the query.name function extracts *K*~OA~ information where the query matches a chemical name within the database. This search matches the names exactly to what is within the database. Only the common name as included in the database will be in the output. To include include all names from the databse in the output, more.info must be TRUE (default is FALSE).
+
+```{r}
+
+# query.name("PCB-82") #The name does not match what is in the database.
+
+# query.name("PCB 82")
+
+# query.name("PCB 82", more.info = T)
+ 
+# query.name("o,p'-DDD")
+ 
+# query.name("3-Methylbutan-2-one")
+```
+
 ## Query by Category
 
-# Query by Mass
+*K*~OA~ data from all chemicals within a specific category can be extracted. To see chemical categories in the output, ensure more.info = T.
+
+```{r}
+#query.category("HCH")
+
+#query.mass(350, 400, more.info = T)
+```
+
+
+## Query by Mass
+
+The database can be queried to find *K*~OA~ data for chemicals with a specific molar mass or within a range of molar masses. By default the molar mass is not included in the output, specifying more.info as TRUE will include the molar mass in the output.
+
+```{r}
+#query.mass(350, 400)
+
+#query.mass(350, 400, more.info = T)
+```
+
+To query a specific mass, specify the mass as both the upper and lower limit.
+
+``` {r}
+#query.mass(106.168, 106.168)
+```
 
 ## Query by Citation
 
+To pull all *K*~OA~ data from a specific citation or reference you can use the query.citation function. The queries must be exact matches to what is included in the database. To obtain a list of citations in the database, use the get.citations function.
+
+```{r}
+#query.citation("Meylan and Howard 2005")
+```
+
+
 ## Query by Group
+
+This functions allows you to obtain all data from a specific research group. The function below will pull all *K*~OA~ data from the work by the Carr group.
+
+```{r}
+# query.group("Carr")
+```
+
+
+## Multiple/batch Queries
+
+Except for the query.mass function, the functions allow for multiple search parameters. Simply include all search terms as a list within the query argument.
+
+```{r}
+# query.cas(c("105-54-4", "319-85-7"))
+
+# query.name(c("Dibromobisphenol A", "Barbital"))
+
+# query.category(c("CDD", "CDF"))
+
+# query.citation(c("Parnis et al. 2015", "Finizio et al. 1997"))
+
+# query.group(c("Bidleman", "Chen"))
+```
 
 
 # Access the SQL Database Directly
-For users who wish to access the SQL version of the database directly and perform custom queries the koa.database() function creates a connection to the database file. 
+For users who wish to access the SQL version of the database directly and perform custom queries the koa.database() function creates a connection to the database file. If used, the other functions within the package will not work correctly until the database is disconnected. 
 
 ```{r}
-conn <- koa.database()
-
+# conn <- koa.database()
+# DBI::dbDisconnect(conn)
 ```
