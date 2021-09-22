@@ -1,7 +1,7 @@
 Package: koadata
 Type: Package
 Title: A Database of Octanol-Air Partition Ratios
-Version: 0.1.0
+Version: 1.0.0
 Author: Sivani Baskaran
 Maintainer: Sivani Baskaran <sivani.baskaran@mail.utoronto.ca>
 Description: This database contains experimental and estimated KOA values data published in the literature as described in *Baskaran et al. 2021. J Phys Chem Ref Data*. The package is intended to allow users to easily search and access the database.
