@@ -22,7 +22,7 @@ Create a data frame with all estimated and experimental KOA values which match t
 \examples{
 query.cas("50-29-3")
 query.cas("50293")
-#' query.cas("50293", more.info = TRUE)
+query.cas("50293", more.info = TRUE)
 query.cas(c("50-29-3","118-74-1"))
 query.cas("50293", ver = "upd")
 }

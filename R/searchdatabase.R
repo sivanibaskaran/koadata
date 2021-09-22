@@ -33,7 +33,7 @@ return(result)
 #' @examples
 #' query.cas("50-29-3")
 #' query.cas("50293")
-#' #' query.cas("50293", more.info = TRUE)
+#' query.cas("50293", more.info = TRUE)
 #' query.cas(c("50-29-3","118-74-1"))
 #' query.cas("50293", ver = "upd")
 query.cas <- function(query,
@@ -222,7 +222,7 @@ query.category <- function(query,
 #'
 #' @examples
 #' query.mass(350, 400)
-#' #' query.mass(200, 350, more.info = TRUE)
+#' query.mass(200, 350, more.info = TRUE)
 #' query.mass(350, 400, ver = "upd")
 #'
 
