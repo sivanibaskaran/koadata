@@ -8,7 +8,7 @@ This package contains the *K*<sub>OA</sub> database presented in
 data obtained from the current version of the database (ver. 1) should
 be cited as: Baskaran, S., Lei, Y.D., Wania, F., “Reliable prediction of
 the octanol-air partition ratio,” *Journal of Physical and Chemical
-Reference Data* (2021). <https://doi.org/10.1002/etc.5201>
+Reference Data* (2021). <https://doi.org/10.1063/5.0059652>
 
 This database contains experimental and estimated *K*<sub>OA</sub>
 values that we could identify in the literature including those from PhD
