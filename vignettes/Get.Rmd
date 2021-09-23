@@ -1,0 +1,34 @@
+---
+title: "Get Functions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Get Functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(rmarkdown) #load the rmarkdown package - used only for rendering images and tables in this document
+library(koadata) 
+```
+
+The Get functions included here are to extract information that could be useful in querying the database where exact matches are necessary. No parameters for these functions need to be specified. Below we have outlined the information provided by using these Get  functions.
+
+## Chemical Categories
+
+Each chemical (or mixture) included in the database is listed in the chemical table of the database, however the categorization is simplified and is non-exhaustive. For example 1,4-Dichlorobenzene (CAS No. 106-46-7) is categorized as a chlorobenzene however is arguably also a Haloarene. These categorizations are intended for the purpose of improving the accessibility of the database for common chemical categories including PCBs, PAHs, PBDEs, and so on.
+
+The `get.categories` function provides a list of unique chemical categories included in the database.
+
+## Citations
+
+Similar to the `get.categories` function, the `get.citations` function provides a list of citations for all references included in the database. 
+
+## Research Groups
+
+Based on the authors for each publication, we have assigned each reference to a research group. These groups are simplified, and as with the nature of research, some have worked collaboratively on various publications. Typically references from similar groups will utilize similar methods for measuring or estimating *K*~OA~. A unique list of reference groups in the database can be obtained by using the `get.groups()` function.

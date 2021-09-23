@@ -13,9 +13,10 @@ koa.database(ver = "upd")
 A connection to the KOA database.
 }
 \description{
-Opens the KOA database using RSQLite.
+Opens the KOA database using RSQLite. The database connection must be closed before other functions in the package can be used.
 }
 \examples{
-koa.database()
-koa.database("upd")
+conn <- koa.database("upd")
+DBI::dbDisconnect(conn)
+
 }

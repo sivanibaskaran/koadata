@@ -1,0 +1,46 @@
+---
+title: "Introduction to koadata"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to koadata}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(rmarkdown) #load the rmarkdown package - used only for rendering images and tables in this document
+```
+
+
+This package was created to make the *K*~OA~ database by *[Baskaran et al. 2021](https://www.doi.org/10.1063/5.0059652)* easily accessible and searchable. The data is stored as a SQL database however the functions in this package allows users to extract data using *R*. 
+
+There are three main types of functions included. Get functions provide a list of variables that users may find helpful in running queries. Table functions which pulls all data from a specific table within the database. Query functions search and summarize data from the entire database.
+
+```{r setup}
+#devtools::install_github("sivanibaskaran/koadata")
+library(koadata) 
+```
+
+Read about the different types of functions here:
+* `vignette("Get")`
+* `vignette("Table")`
+* `vignette("Quercy")`
+
+In all functions, the version of the database can also be specified. By default, they all use the latest version (and currently only version) of the database. If there are multiple versions of the database, they can be called and specified using the *ver* argument  
+
+
+# Access the SQL Database Directly
+
+For users who wish to access the SQL version of the database directly and perform custom queries the `koa.database()` function creates a connection to the database file. If used, the other functions within the package will not work correctly until the database is disconnected using `DBI::dbDisconnect()`. 
+
+```{r}
+# conn <- koa.database()
+# DBI::dbDisconnect(conn)
+```
+
+For more information on using SQL within R see [DBI](https://dbi.r-dbi.org/) and [RSQLite](https://rsqlite.r-dbi.org/) or other similar packages.

@@ -1,0 +1,79 @@
+---
+title: "Table Functions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Table Functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(rmarkdown) #load the rmarkdown package - used only for rendering images and tables in this document
+library(koadata) 
+```
+
+
+The *K*~OA~ database contains multiple tables including chemical, methodological, reference, author, *K*~OA~ tables. Each of the tables can be extracted by using Table functions. Below is a schematic of the *K*~OA~ database from *[Baskaran et al. 2021](https://www.doi.org/10.1063/5.0059652)*. 
+
+```{r, echo = FALSE, out.width="75%", fig.cap = "Database schema, reproduced from *Baskaran et al. 2021*"}
+# knitr::include_graphics("Figure3.png")
+```
+
+![](Figure3.png)
+
+Each of these tables contain specific data and can be extracted using Table functions. For example, if you want to take a look at the Reference Table you would use the function ref.table(). 
+
+```{r}
+#table.ref()
+```
+
+This data frame contains 155 observations (rows) and 7 variables (columns). Here is a small subset of what the *references* variable output looks like.
+
+```{r, echo = F}
+references <- table.ref() 
+paged_table(references, options = list(rows.print = 5, cols.print = 15)) 
+```
+
+Similarly you can extract the different tables in the database using the other Table functions.
+
+| Function | Table  | Description| 
+| ------------- | -------------  | -------------| 
+| table.au() | Author | Names of authors| 
+| table.chem() | Chemical | Categories, CAS No., names, SMILES and other chemical identifiers| 
+| table.koa()  | *K*~OA~ | Reported *K*~OA~ and log~10~ *K*~OA~ data, errors, notes| 
+| table.meth() | Methods | Descriptions of each estimation & experimental techniques to obtain *K*~OA~| 
+| table.prop() | Properties | Phys-chem properties used to calculate the *K*~OA~| 
+| table.ref() | References | Citation details for all sources in the database| 
+
+## Extracting subsets of data using Table functions
+
+Some of these Table functions allow you to extract a subset of data. For example, from the references table, we can identify all citations from the Harner group.
+
+``` {r}
+
+#table.ref("Harner")
+
+#table.ref(query = "Harner") 
+
+```
+
+Or from more than one research group. 
+
+``` {r}
+
+#table.ref(query = c("Harner", "Carr"))
+
+```
+
+Table functions that allow for subsetting are:
+
+* `table.chem()` --- specify the chemcial category/categories ("PCBs", "PAHs", etc.)
+* `table.meth()` --- specify the type of method ("Dynamic", "Static", "Indirect", "EST")
+* `table.ref()` --- specify the research group ("Harner", "Carr", "Abraham", etc.)
+* `table.prop()` --- specify the property type ("log_KOW", "log_KAW", "VP", "Sw", "inf_act", "dG")
+

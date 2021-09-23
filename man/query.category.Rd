@@ -25,3 +25,12 @@ query.category(c("Terpene", "PBDE"))
 query.category(c("Terpene", "PBDE"), more.info = TRUE)
 query.category("PCB", ver = "upd")
 }
+\seealso{
+Other Queries: 
+\code{\link{query.cas}()},
+\code{\link{query.citation}()},
+\code{\link{query.group}()},
+\code{\link{query.mass}()},
+\code{\link{query.name}()}
+}
+\concept{Queries}

@@ -25,3 +25,12 @@ query.group(c("Harner", "Chen", "Odabasi"))
 query.group(c("Harner", "Chen", "Odabasi"), more.info = TRUE)
 query.group("Harner", ver = "upd")
 }
+\seealso{
+Other Queries: 
+\code{\link{query.cas}()},
+\code{\link{query.category}()},
+\code{\link{query.citation}()},
+\code{\link{query.mass}()},
+\code{\link{query.name}()}
+}
+\concept{Queries}

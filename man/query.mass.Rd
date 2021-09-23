@@ -25,5 +25,13 @@ Create a data frame with all estimated and experimental KOA values for chemicals
 query.mass(350, 400)
 query.mass(200, 350, more.info = TRUE)
 query.mass(350, 400, ver = "upd")
-
 }
+\seealso{
+Other Queries: 
+\code{\link{query.cas}()},
+\code{\link{query.category}()},
+\code{\link{query.citation}()},
+\code{\link{query.group}()},
+\code{\link{query.name}()}
+}
+\concept{Queries}

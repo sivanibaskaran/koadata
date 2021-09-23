@@ -25,3 +25,12 @@ query.name("HCB", more.info = TRUE)
 query.name(c("8:2 FTOH", "Hexachlorobenzene"))
 query.name("8:2 FTOH", ver = "upd")
 }
+\seealso{
+Other Queries: 
+\code{\link{query.cas}()},
+\code{\link{query.category}()},
+\code{\link{query.citation}()},
+\code{\link{query.group}()},
+\code{\link{query.mass}()}
+}
+\concept{Queries}

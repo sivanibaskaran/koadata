@@ -26,3 +26,12 @@ query.cas("50293", more.info = TRUE)
 query.cas(c("50-29-3","118-74-1"))
 query.cas("50293", ver = "upd")
 }
+\seealso{
+Other Queries: 
+\code{\link{query.category}()},
+\code{\link{query.citation}()},
+\code{\link{query.group}()},
+\code{\link{query.mass}()},
+\code{\link{query.name}()}
+}
+\concept{Queries}
