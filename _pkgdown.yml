@@ -1,0 +1,17 @@
+reference:
+- title: "Queries"
+  desc: "Searching the database"
+- contents:
+  - starts_with("query")
+- title: "Tables"
+  desc: "Tables in the database"
+- contents:
+  - starts_with("table")
+- title: "Get"
+  desc: "Extract specific information"
+- contents:
+  - starts_with("get")
+- title: "Direct Access"
+  desc: "Connect to the database"
+- contents:
+  - starts_with("koa")
