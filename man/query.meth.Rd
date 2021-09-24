@@ -14,10 +14,10 @@ query.meth(query, more.info = F, ver = "upd")
 \item{ver}{Version of the database. Default is upd, for the latest version.}
 }
 \value{
-A data frame containing *K*~OA~ data for chemicals with CAS No. matching the query.
+A data frame containing KOA data for chemicals with CAS No. matching the query.
 }
 \description{
-Create a data frame with all *K*~OA~ values obtained using a specific method. Method types include: "FM", "QSPR", "Dy-GLC-RT", "HS", "RT", "droplet", "Eqbm", "Solvation", "VP", "GasSol", or "GS".
+Create a data frame with all KOA values obtained using a specific method. Method types include: "FM", "QSPR", "Dy-GLC-RT", "HS", "RT", "droplet", "Eqbm", "Solvation", "VP", "GasSol", or "GS".
 }
 \examples{
 query.meth("FM")

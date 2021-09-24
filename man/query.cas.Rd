@@ -14,10 +14,10 @@ query.cas(query, more.info = F, ver = "upd")
 \item{ver}{Version of the database. Default is upd, for the latest version.}
 }
 \value{
-A data frame containing *K*~OA~ data for chemicals with CAS No. matching the query.
+A data frame containing KOA data for chemicals with CAS No. matching the query.
 }
 \description{
-Create a data frame with all estimated and experimental *K*~OA~ values which match the specified CAS number(s).
+Create a data frame with all estimated and experimental KOA values which match the specified CAS number(s).
 }
 \examples{
 query.cas("50-29-3")

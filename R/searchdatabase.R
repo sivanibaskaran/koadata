@@ -1,12 +1,12 @@
 
 
-#' Open the *K*~OA~ database
+#' Open the KOA database
 #'
-#' Opens the *K*~OA~ database using RSQLite. The database connection must be closed before other functions in the package can be used.
+#' Opens the KOA database using RSQLite. The database connection must be closed before other functions in the package can be used.
 #'
 #' @param ver Version of the database. Default is upd, for the latest version.
 #'
-#' @return A connection to the *K*~OA~ database.
+#' @return A connection to the KOA database.
 #' @export
 #'
 #' @examples
@@ -22,13 +22,13 @@ return(result)
 
 #' Search by CAS number
 #'
-#'Create a data frame with all estimated and experimental *K*~OA~ values which match the specified CAS number(s).
+#'Create a data frame with all estimated and experimental KOA values which match the specified CAS number(s).
 #'
 #' @param query CAS number, with or without dashes, either a single input or a vector.
 #' @param more.info When FALSE (default), returns fewer columns from the chemical, methods, and reference tables. When TRUE, additional details on the chemical (category, synonyms, molar mass), methods (wet/dry octanol, type of value reported, type of method), and reference (group/team).
 #' @param ver Version of the database. Default is upd, for the latest version.
 #'
-#' @return A data frame containing *K*~OA~ data for chemicals with CAS No. matching the query.
+#' @return A data frame containing KOA data for chemicals with CAS No. matching the query.
 #' @export
 #' @examples
 #' query.cas("50-29-3")
@@ -85,13 +85,13 @@ query.cas <- function(query,
 
 #' Search by method type
 #'
-#'Create a data frame with all *K*~OA~ values obtained using a specific type of method. Method types include: "Dynamic", "Static", "Indirect", or "EST".
+#'Create a data frame with all KOA values obtained using a specific type of method. Method types include: "Dynamic", "Static", "Indirect", or "EST".
 #'
 #' @param query The type of method.
 #' @param more.info When FALSE (default), returns fewer columns from the chemical, methods, and reference tables. When TRUE, additional details on the chemical (category, synonyms, molar mass), methods (wet/dry octanol, type of value reported, type of method), and reference (group/team).
 #' @param ver Version of the database. Default is upd, for the latest version.
 #'
-#' @return A data frame containing *K*~OA~ data for chemicals with CAS No. matching the query.
+#' @return A data frame containing KOA data for chemicals with CAS No. matching the query.
 #' @export
 #' @examples
 #' query.meth.type("Dynamic")
@@ -145,13 +145,13 @@ query.meth.type <- function(query,
 
 #' Search by method
 #'
-#'Create a data frame with all *K*~OA~ values obtained using a specific method. Method types include: "FM", "QSPR", "Dy-GLC-RT", "HS", "RT", "droplet", "Eqbm", "Solvation", "VP", "GasSol", or "GS".
+#'Create a data frame with all KOA values obtained using a specific method. Method types include: "FM", "QSPR", "Dy-GLC-RT", "HS", "RT", "droplet", "Eqbm", "Solvation", "VP", "GasSol", or "GS".
 #'
 #' @param query The specific method.
 #' @param more.info When FALSE (default), returns fewer columns from the chemical, methods, and reference tables. When TRUE, additional details on the chemical (category, synonyms, molar mass), methods (wet/dry octanol, type of value reported, type of method), and reference (group/team).
 #' @param ver Version of the database. Default is upd, for the latest version.
 #'
-#' @return A data frame containing *K*~OA~ data for chemicals with CAS No. matching the query.
+#' @return A data frame containing KOA data for chemicals with CAS No. matching the query.
 #' @export
 #' @examples
 #' query.meth("FM")
@@ -205,13 +205,13 @@ query.meth <- function(query,
 
 #' Search by chemical name
 #'
-#'Create a data frame with all estimated and experimental *K*~OA~ values which exactly match the specified chemical name(s). All entries are case sensitive.
+#'Create a data frame with all estimated and experimental KOA values which exactly match the specified chemical name(s). All entries are case sensitive.
 #'
 #' @param query Chemical name, either a single input or a vector. Searches against multiple synonymns included in the chemical table.
 #' @param more.info When FALSE (default), returns fewer columns from the chemical, methods, and reference tables. When TRUE, additional details on the chemical (category, synonyms, molar mass), methods (wet/dry octanol, type of value reported, type of method), and reference (group/team).
 #' @param ver Version of the database. Default is upd, for the latest version.
 #'
-#' @return A data frame containing *K*~OA~ data for chemicals with names exactly matching the query.
+#' @return A data frame containing KOA data for chemicals with names exactly matching the query.
 #' @export
 #' @examples
 #' query.name("8:2 FTOH")
@@ -268,13 +268,13 @@ query.name <- function(query,
 
 #' Search by chemical category
 #'
-#'Create a data frame with all estimated and experimental *K*~OA~ values for chemicals which belong to the specified category. All entries are case sensitive.
+#'Create a data frame with all estimated and experimental KOA values for chemicals which belong to the specified category. All entries are case sensitive.
 #'
 #' @param query Category name, either a single input or a vector.
 #' @param more.info When FALSE (default), returns fewer columns from the chemical, methods, and reference tables. When TRUE, additional details on the chemical (category, synonyms, molar mass), methods (wet/dry octanol, type of value reported, type of method), and reference (group/team).
 #' @param ver Version of the database. Default is upd, for the latest version.
 #'
-#' @return A data frame containing *K*~OA~ data for chemicals which belong to the category or categories matching the query.
+#' @return A data frame containing KOA data for chemicals which belong to the category or categories matching the query.
 #' @export
 #'
 #' @examples
@@ -332,14 +332,14 @@ query.category <- function(query,
 
 #' Search by chemical mass
 #'
-#'Create a data frame with all estimated and experimental *K*~OA~ values for chemicals which have a molar mass between the two values in the query.
+#'Create a data frame with all estimated and experimental KOA values for chemicals which have a molar mass between the two values in the query.
 #'
 #' @param lower_limit Lower mass limit.
 #' @param upper_limit Upper mass limit.
 #' @param more.info When FALSE (default), returns fewer columns from the chemical, methods, and reference tables. When TRUE, additional details on the chemical (category, synonyms, molar mass), methods (wet/dry octanol, type of value reported, type of method), and reference (group/team).
 #' @param ver Version of the database. Default is upd, for the latest version.
 #'
-#' @return A data frame containing *K*~OA~ data for chemicals which have a mass between the range specified in the query.
+#' @return A data frame containing KOA data for chemicals which have a mass between the range specified in the query.
 #' @export
 #'
 #' @examples
@@ -392,13 +392,13 @@ query.mass <- function(lower_limit, upper_limit, ver = "upd") {
 
 #' Search by citation
 #'
-#' Create a data frame with all estimated and experimental *K*~OA~ values from the citations in the query.
+#' Create a data frame with all estimated and experimental KOA values from the citations in the query.
 #'
 #' @param query  Citation, either a single input or a vector. Use function ref.table() to get a list of citations in the database.
 #' @param more.info When FALSE (default), returns fewer columns from the chemical, methods, and reference tables. When TRUE, additional details on the chemical (category, synonyms, molar mass), methods (wet/dry octanol, type of value reported, type of method), and reference (group/team).
 #' @param ver Version of the database. Default is upd, for the latest version.
 #'
-#' @return A data frame containing *K*~OA~ data from the citations included in the query.
+#' @return A data frame containing KOA data from the citations included in the query.
 #' @export
 #'
 #' @examples
@@ -453,13 +453,13 @@ query.citation <- function(query,
 
 #' Search by group
 #'
-#' Create a data frame with all estimated and experimental *K*~OA~ values from the research groups in the query.
+#' Create a data frame with all estimated and experimental KOA values from the research groups in the query.
 #'
 #' @param query Group name, either a single input or a vector.
 #' @param more.info When FALSE (default), returns fewer columns from the chemical, methods, and reference tables. When TRUE, additional details on the chemical (category, synonyms, molar mass), methods (wet/dry octanol, type of value reported, type of method), and reference (group/team).
 #' @param ver Version of the database. Default is upd, for the latest version.
 #'
-#' @return A data frame containing *K*~OA~ data from the groups included in the query.
+#' @return A data frame containing KOA data from the groups included in the query.
 #' @export
 #'
 #' @examples

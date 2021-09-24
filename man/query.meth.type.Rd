@@ -14,10 +14,10 @@ query.meth.type(query, more.info = F, ver = "upd")
 \item{ver}{Version of the database. Default is upd, for the latest version.}
 }
 \value{
-A data frame containing *K*~OA~ data for chemicals with CAS No. matching the query.
+A data frame containing KOA data for chemicals with CAS No. matching the query.
 }
 \description{
-Create a data frame with all *K*~OA~ values obtained using a specific type of method. Method types include: "Dynamic", "Static", "Indirect", or "EST".
+Create a data frame with all KOA values obtained using a specific type of method. Method types include: "Dynamic", "Static", "Indirect", or "EST".
 }
 \examples{
 query.meth.type("Dynamic")

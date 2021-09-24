@@ -14,10 +14,10 @@ query.name(query, more.info = F, ver = "upd")
 \item{ver}{Version of the database. Default is upd, for the latest version.}
 }
 \value{
-A data frame containing *K*~OA~ data for chemicals with names exactly matching the query.
+A data frame containing KOA data for chemicals with names exactly matching the query.
 }
 \description{
-Create a data frame with all estimated and experimental *K*~OA~ values which exactly match the specified chemical name(s). All entries are case sensitive.
+Create a data frame with all estimated and experimental KOA values which exactly match the specified chemical name(s). All entries are case sensitive.
 }
 \examples{
 query.name("8:2 FTOH")

@@ -14,10 +14,10 @@ query.citation(query, more.info = F, ver = "upd")
 \item{ver}{Version of the database. Default is upd, for the latest version.}
 }
 \value{
-A data frame containing *K*~OA~ data from the citations included in the query.
+A data frame containing KOA data from the citations included in the query.
 }
 \description{
-Create a data frame with all estimated and experimental *K*~OA~ values from the citations in the query.
+Create a data frame with all estimated and experimental KOA values from the citations in the query.
 }
 \examples{
 query.citation("Lei et al. 2019")

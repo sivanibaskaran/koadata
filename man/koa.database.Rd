@@ -2,7 +2,7 @@
 % Please edit documentation in R/searchdatabase.R
 \name{koa.database}
 \alias{koa.database}
-\title{Open the *K*~OA~ database}
+\title{Open the KOA database}
 \usage{
 koa.database(ver = "upd")
 }
@@ -10,10 +10,10 @@ koa.database(ver = "upd")
 \item{ver}{Version of the database. Default is upd, for the latest version.}
 }
 \value{
-A connection to the *K*~OA~ database.
+A connection to the KOA database.
 }
 \description{
-Opens the *K*~OA~ database using RSQLite. The database connection must be closed before other functions in the package can be used.
+Opens the KOA database using RSQLite. The database connection must be closed before other functions in the package can be used.
 }
 \examples{
 conn <- koa.database("upd")
