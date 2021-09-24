@@ -82,6 +82,127 @@ query.cas <- function(query,
 }
 
 
+
+#' Search by method type
+#'
+#'Create a data frame with all KOA values obtained using a specific type of method. Method types include: "Dynamic", "Static", "Indirect", or "EST".
+#'
+#' @param query The type of method.
+#' @param more.info When FALSE (default), returns fewer columns from the chemical, methods, and reference tables. When TRUE, additional details on the chemical (category, synonyms, molar mass), methods (wet/dry octanol, type of value reported, type of method), and reference (group/team).
+#' @param ver Version of the database. Default is upd, for the latest version.
+#'
+#' @return A data frame containing KOA data for chemicals with CAS No. matching the query.
+#' @export
+#' @examples
+#' query.meth.type("Dynamic")
+#' query.meth.type("Dynamic", more.info = TRUE)
+#' @family Queries
+query.meth.type <- function(query,
+                      more.info = F,
+                      ver = "upd") {
+  conn <-
+    DBI::dbConnect(RSQLite::SQLite(),
+                   system.file("DB", paste("koa-", ver, ".db", sep = ""), package = "koadata"))
+  if (more.info == F) {
+    meth_sql <-
+      glue::glue_sql(
+        "SELECT chem.Cas_No, chem.Chemical_Name, koa.Temp, koa.log_KOA, meth.Ranking, meth.Type,  meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
+  FROM koa
+  JOIN chem ON koa.chemID = chem.id
+  JOIN meth ON koa.methID = meth.id
+  JOIN ref ON meth.refID = ref.id
+  WHERE ? in (meth.Method_Type)"
+      )
+    meth <- DBI::dbSendQuery(conn, meth_sql)
+    meth <- DBI::dbBind(meth, list(query))
+  } else {
+    meth_sql <-
+      glue::glue_sql(
+        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
+                chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
+                koa.Temp, koa.log_KOA,
+                meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
+                meth.wet_dry_Octanol, meth.Value_Reported_As,
+                ref.Citation, ref.Team,
+                koa.Reliability, koa.Comment
+        FROM koa
+        JOIN chem ON koa.chemID = chem.id
+        JOIN meth ON koa.methID = meth.id
+        JOIN ref ON meth.refID = ref.id
+        WHERE ? in (meth.Method_Type)"
+      )
+    meth <- DBI::dbSendQuery(conn, meth_sql)
+    meth <- DBI::dbBind(meth, list(query))
+
+  }
+  result <- DBI::dbFetch(meth)
+  DBI::dbClearResult(meth)
+  DBI::dbDisconnect(conn)
+  return(result)
+}
+
+
+
+#' Search by method
+#'
+#'Create a data frame with all KOA values obtained using a specific method. Method types include: "FM", "QSPR", "Dy-GLC-RT", "HS", "RT", "droplet", "Eqbm", "Solvation", "VP", "GasSol", or "GS".
+#'
+#' @param query The specific method.
+#' @param more.info When FALSE (default), returns fewer columns from the chemical, methods, and reference tables. When TRUE, additional details on the chemical (category, synonyms, molar mass), methods (wet/dry octanol, type of value reported, type of method), and reference (group/team).
+#' @param ver Version of the database. Default is upd, for the latest version.
+#'
+#' @return A data frame containing KOA data for chemicals with CAS No. matching the query.
+#' @export
+#' @examples
+#' query.meth("FM")
+#' query.meth("Eqbm", more.info = TRUE)
+#' @family Queries
+query.meth <- function(query,
+                            more.info = F,
+                            ver = "upd") {
+  conn <-
+    DBI::dbConnect(RSQLite::SQLite(),
+                   system.file("DB", paste("koa-", ver, ".db", sep = ""), package = "koadata"))
+  if (more.info == F) {
+    meth_sql <-
+      glue::glue_sql(
+        "SELECT chem.Cas_No, chem.Chemical_Name, koa.Temp, koa.log_KOA, meth.Ranking, meth.Type,  meth.Method_Bin, ref.Citation, koa.Reliability, koa.Comment
+  FROM koa
+  JOIN chem ON koa.chemID = chem.id
+  JOIN meth ON koa.methID = meth.id
+  JOIN ref ON meth.refID = ref.id
+  WHERE ? in (meth.Method_Bin)"
+      )
+    meth <- DBI::dbSendQuery(conn, meth_sql)
+    meth <- DBI::dbBind(meth, list(query))
+  } else {
+    meth_sql <-
+      glue::glue_sql(
+        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
+                chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
+                koa.Temp, koa.log_KOA,
+                meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
+                meth.wet_dry_Octanol, meth.Value_Reported_As,
+                ref.Citation, ref.Team,
+                koa.Reliability, koa.Comment
+        FROM koa
+        JOIN chem ON koa.chemID = chem.id
+        JOIN meth ON koa.methID = meth.id
+        JOIN ref ON meth.refID = ref.id
+        WHERE ? in (meth.Method_Bin)"
+      )
+    meth <- DBI::dbSendQuery(conn, meth_sql)
+    meth <- DBI::dbBind(meth, list(query))
+
+  }
+  result <- DBI::dbFetch(meth)
+  DBI::dbClearResult(meth)
+  DBI::dbDisconnect(conn)
+  return(result)
+}
+
+
+
 #' Search by chemical name
 #'
 #'Create a data frame with all estimated and experimental KOA values which exactly match the specified chemical name(s). All entries are case sensitive.

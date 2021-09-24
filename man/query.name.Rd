@@ -31,6 +31,8 @@ Other Queries:
 \code{\link{query.category}()},
 \code{\link{query.citation}()},
 \code{\link{query.group}()},
-\code{\link{query.mass}()}
+\code{\link{query.mass}()},
+\code{\link{query.meth.type}()},
+\code{\link{query.meth}()}
 }
 \concept{Queries}
