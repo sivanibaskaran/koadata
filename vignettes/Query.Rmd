@@ -117,7 +117,7 @@ The `query.group()` functions allows you to obtain all data from a specific rese
 ```
 
 
-#Query by Method
+##Query by Method
 
 There are two functions that allow you to search the database by methods. The `query.meth.type()` function will extract all *K*~OA~ data from "Dynamic", "Static", Indirect", or "EST" methods. 
 
