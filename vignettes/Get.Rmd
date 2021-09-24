@@ -23,11 +23,11 @@ The Get functions included here are to extract information that could be useful 
 
 Each chemical (or mixture) included in the database is listed in the chemical table of the database, however the categorization is simplified and is non-exhaustive. For example 1,4-Dichlorobenzene (CAS No. 106-46-7) is categorized as a chlorobenzene however is arguably also a Haloarene. These categorizations are intended for the purpose of improving the accessibility of the database for common chemical categories including PCBs, PAHs, PBDEs, and so on.
 
-The `get.categories` function provides a list of unique chemical categories included in the database.
+The `get.categories()` function provides a list of unique chemical categories included in the database.
 
 ## Citations
 
-Similar to the `get.categories` function, the `get.citations` function provides a list of citations for all references included in the database. 
+Similar to the `get.categories()` function, the `get.citations()` function provides a list of citations for all references included in the database. 
 
 ## Research Groups
 
