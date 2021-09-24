@@ -14,10 +14,10 @@ query.category(query, more.info = F, ver = "upd")
 \item{ver}{Version of the database. Default is upd, for the latest version.}
 }
 \value{
-A data frame containing KOA data for chemicals which belong to the category or categories matching the query.
+A data frame containing *K*~OA~ data for chemicals which belong to the category or categories matching the query.
 }
 \description{
-Create a data frame with all estimated and experimental KOA values for chemicals which belong to the specified category. All entries are case sensitive.
+Create a data frame with all estimated and experimental *K*~OA~ values for chemicals which belong to the specified category. All entries are case sensitive.
 }
 \examples{
 query.category("PCB")

@@ -16,10 +16,10 @@ query.mass(lower_limit, upper_limit, ver = "upd")
 \item{more.info}{When FALSE (default), returns fewer columns from the chemical, methods, and reference tables. When TRUE, additional details on the chemical (category, synonyms, molar mass), methods (wet/dry octanol, type of value reported, type of method), and reference (group/team).}
 }
 \value{
-A data frame containing KOA data for chemicals which have a mass between the range specified in the query.
+A data frame containing *K*~OA~ data for chemicals which have a mass between the range specified in the query.
 }
 \description{
-Create a data frame with all estimated and experimental KOA values for chemicals which have a molar mass between the two values in the query.
+Create a data frame with all estimated and experimental *K*~OA~ values for chemicals which have a molar mass between the two values in the query.
 }
 \examples{
 query.mass(350, 400)
