@@ -47,7 +47,7 @@ By default the more.info argument is FALSE.
 
 ## Query by CAS No.
 
-This function can be used to extract *K*~OA~ information regarding a specific chemical with a known CAS No. The CAS No. does not need to include hyphens (-).
+The `query.cas()` function can be used to extract *K*~OA~ information regarding a specific chemical with a known CAS No. The CAS No. does not need to include hyphens (-).
 
 ```{r}
 # query.cas("87-82-1")
@@ -57,7 +57,7 @@ This function can be used to extract *K*~OA~ information regarding a specific ch
 
 ## Query by Name
 
-Using the query.name function extracts *K*~OA~ information where the query matches a chemical name within the database. This search matches the names exactly to what is within the database. Only the common name as included in the database will be in the output. To include include all names from the databse in the output, more.info must be TRUE (default is FALSE).
+Using the `query.name()` function extracts *K*~OA~ information where the query matches a chemical name within the database. This search matches the names exactly to what is within the database. Only the common name as included in the database will be in the output. To include include all names from the databse in the output, `more.info` must be TRUE (default is FALSE).
 
 ```{r}
 
@@ -74,7 +74,7 @@ Using the query.name function extracts *K*~OA~ information where the query match
 
 ## Query by Category
 
-*K*~OA~ data from all chemicals within a specific category can be extracted. To see chemical categories in the output, ensure more.info = T.
+*K*~OA~ data from all chemicals within a specific category can be extracted using the `query.category()` function. To see chemical categories in the output, ensure `more.info = T`. See `get.categories()` to obtain a list of query options.
 
 ```{r}
 #query.category("HCH")
@@ -85,7 +85,7 @@ Using the query.name function extracts *K*~OA~ information where the query match
 
 ## Query by Mass
 
-The database can be queried to find *K*~OA~ data for chemicals with a specific molar mass or within a range of molar masses. By default the molar mass is not included in the output, specifying more.info as TRUE will include the molar mass in the output.
+The database can be queried to find *K*~OA~ data for chemicals with a specific molar mass or within a range of molar masses using `query.mass()`. By default the molar mass is not included in the output, specifying `more.info` as `TRUE` will include the molar mass in the output.
 
 ```{r}
 #query.mass(350, 400)
@@ -101,7 +101,7 @@ To query a specific mass, specify the mass as both the upper and lower limit.
 
 ## Query by Citation
 
-To pull all *K*~OA~ data from a specific citation or reference you can use the query.citation function. The queries must be exact matches to what is included in the database. To obtain a list of citations in the database, use the get.citations function.
+To pull all *K*~OA~ data from a specific citation or reference you can use the `query.citation()` function. The queries must be exact matches to what is included in the database. To obtain a list of citations in the database, use the `get.citations()` function.
 
 ```{r}
 #query.citation("Meylan and Howard 2005")
@@ -110,12 +110,27 @@ To pull all *K*~OA~ data from a specific citation or reference you can use the q
 
 ## Query by Group
 
-This functions allows you to obtain all data from a specific research group. The function below will pull all *K*~OA~ data from the work by the Carr group.
+The `query.group()` functions allows you to obtain all data from a specific research group. The function below will pull all *K*~OA~ data from the work by the Carr group.
 
 ```{r}
 # query.group("Carr")
 ```
 
+
+#Query by Method
+
+There are two functions that allow you to search the database by methods. The `query.meth.type()` function will extract all *K*~OA~ data from "Dynamic", "Static", Indirect", or "EST" methods. 
+
+```{r}
+#query.meth.type("Static")
+```
+
+The `query.meth()` function is more specific and searches for specific experimental and estimated methods: "FM", "QSPR", "Dy-GLC-RT", "HS", "RT", "droplet", "Eqbm", "Solvation", "VP", "GasSol", or "GS". 
+
+```{r}
+#query.meth("Solvation")
+#query.meth("droplet")
+```
 
 ## Multiple/batch Queries
 
