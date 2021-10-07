@@ -3,13 +3,13 @@ output: github_document
 ---
 
 # *K*~OA~ Database
-**Last Updated: Sept 22 2021**
+**Last Updated: October 7 2021**
 
 This package contains the *K*~OA~ database presented in *[Baskaran et al. 2021](https://www.doi.org/10.1063/5.0059652)*. All data obtained from the current version of the database (ver. 1) should be cited as: Baskaran, S., Lei, Y.D., Wania, F., "Reliable prediction of the octanol-air partition ratio," *Journal of Physical and Chemical Reference Data* (2021). https://doi.org/10.1063/5.0059652 
 
 This database contains experimental and estimated *K*~OA~ values that we could identify in the literature including those from PhD dissertations. Information in this database includes the identity of the chemical for which the *K*~OA~ is reported, the temperature of the value, the methodology used, the original citation and a score on the quality of data.
 
-By default the latest version of the database is called by the functions. Currently there is only one version of the database. For more information on how to use the database [click here](https://sivanibaskaran.github.io/koadata/).
+By default the latest version of the database is called by the functions. Currently there is only one version of the database. For more information on how to use the database in *R* [click here](https://sivanibaskaran.github.io/koadata/).
 
 This database is complete to the best of our knowledge as of May 2021. A few papers with *K*~OA~ values (experimental or estimated) have been published since this time:
 

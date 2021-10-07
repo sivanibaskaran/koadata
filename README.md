@@ -1,7 +1,7 @@
 
 # *K*<sub>OA</sub> Database
 
-**Last Updated: Sept 22 2021**
+**Last Updated: October 7 2021**
 
 This package contains the *K*<sub>OA</sub> database presented in
 *[Baskaran et al. 2021](https://www.doi.org/10.1063/5.0059652)*. All
@@ -19,7 +19,7 @@ the quality of data.
 
 By default the latest version of the database is called by the
 functions. Currently there is only one version of the database. For more
-information on how to use the database [click
+information on how to use the database in *R* [click
 here](https://sivanibaskaran.github.io/koadata/).
 
 This database is complete to the best of our knowledge as of May 2021. A
