@@ -18,7 +18,9 @@ the value, the methodology used, the original citation and a score on
 the quality of data.
 
 By default the latest version of the database is called by the
-functions. Currently there is only one version of the database.
+functions. Currently there is only one version of the database. For more
+information on how to use the database [click
+here](https://sivanibaskaran.github.io/koadata/).
 
 This database is complete to the best of our knowledge as of May 2021. A
 few papers with *K*<sub>OA</sub> values (experimental or estimated) have
