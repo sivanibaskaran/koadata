@@ -1,0 +1,10 @@
+pandoc: 2.11.4
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  Get: Get.html
+  koadata: koadata.html
+  Query: Query.html
+  Table: Table.html
+last_built: 2021-10-07T16:44Z
+
