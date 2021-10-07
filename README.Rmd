@@ -9,7 +9,7 @@ This package contains the *K*~OA~ database presented in *[Baskaran et al. 2021](
 
 This database contains experimental and estimated *K*~OA~ values that we could identify in the literature including those from PhD dissertations. Information in this database includes the identity of the chemical for which the *K*~OA~ is reported, the temperature of the value, the methodology used, the original citation and a score on the quality of data.
 
-By default the latest version of the database is called by the functions. Currently there is only one version of the database.
+By default the latest version of the database is called by the functions. Currently there is only one version of the database. For more information on how to use the database [click here](https://sivanibaskaran.github.io/koadata/).
 
 This database is complete to the best of our knowledge as of May 2021. A few papers with *K*~OA~ values (experimental or estimated) have been published since this time:
 
