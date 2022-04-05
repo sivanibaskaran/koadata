@@ -58,7 +58,7 @@ query.cas <- function(query,
   } else {
     CAS_sql <-
       glue::glue_sql(
-        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
+        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
                 meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
@@ -118,7 +118,7 @@ query.meth.type <- function(query,
   } else {
     meth_sql <-
       glue::glue_sql(
-        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
+        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
                 meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
@@ -178,7 +178,7 @@ query.meth <- function(query,
   } else {
     meth_sql <-
       glue::glue_sql(
-        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
+        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
                 meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
@@ -241,7 +241,7 @@ query.name <- function(query,
   } else {
     name_sql <-
       glue::glue_sql(
-        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
+        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
                 meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
@@ -306,7 +306,7 @@ query.category <- function(query,
   } else {
     cat_sql <-
       glue::glue_sql(
-        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
+        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
                 meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
@@ -367,7 +367,7 @@ query.mass <- function(lower_limit, upper_limit, ver = "upd") {
   } else {
     mass_sql <-
       glue::glue_sql(
-        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
+        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
                 meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
@@ -429,7 +429,7 @@ query.citation <- function(query,
   } else {
     citation_sql <-
       glue::glue_sql(
-        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
+        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
                 meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
@@ -490,7 +490,7 @@ query.group <- function(query,
   } else {
     group_sql <-
       glue::glue_sql(
-        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.Chemical_Name, chem.IUPAC_name,
+        "SELECT chem.Category, chem.Cas_No, chem.Chemical_Name, chem.IUPAC_name,
                 chem.Alt_Chem_Name, chem.Acronym, chem.Alt_Acronym, chem.Molar_Mass,
                 koa.Temp, koa.log_KOA,
                 meth.Ranking, meth.Type, meth.Method_Type, meth.Gen_Method, meth.Method_Bin,
